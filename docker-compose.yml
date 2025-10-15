@@ -1,0 +1,86 @@
+version: '3.8'
+
+services:
+  # 后端服务
+  backend:
+    build: 
+      context: ./activity-booking-server
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://activity_user:activity_pass@db:5432/activity_booking
+      - REDIS_URL=redis://redis:6379/0
+      - SECRET_KEY=your-secret-key-change-in-production
+      - WECHAT_APPID=your-wechat-appid
+      - WECHAT_SECRET=your-wechat-secret
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - ./activity-booking-server:/app
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    networks:
+      - app-network
+
+  # 前端开发服务器（可选，用于开发时热重载）
+  frontend-dev:
+    image: node:22-alpine
+    working_dir: /app
+    volumes:
+      - ./activity-booking-miniapp:/app
+    ports:
+      - "3000:3000"
+    command: sh -c "npm install && npm run dev"
+    networks:
+      - app-network
+    profiles:
+      - dev
+
+  # 数据库
+  db:
+    image: postgres:18
+    environment:
+      - POSTGRES_USER=activity_user
+      - POSTGRES_PASSWORD=activity_pass
+      - POSTGRES_DB=activity_booking
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+  # Redis 缓存
+  redis:
+    image: redis:8
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - app-network
+
+  # Nginx 反向代理（生产环境）
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - backend
+    networks:
+      - app-network
+    profiles:
+      - production
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  app-network:
+    driver: bridge

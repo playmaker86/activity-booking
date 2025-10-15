@@ -1,0 +1,30 @@
+{
+  "name": "activity-booking-miniapp",
+  "version": "1.0.0",
+  "description": "活动预约小程序",
+  "type": "module",
+  "scripts": {
+    "dev": "uni --mode development",
+    "dev:staging": "uni --mode staging",
+    "build": "uni build --mode production",
+    "build:staging": "uni build --mode staging",
+    "type-check": "vue-tsc --noEmit"
+  },
+  "dependencies": {
+    "@dcloudio/uni-app": "3.0.0-alpha-4080220250929001",
+    "@dcloudio/uni-app-plus": "3.0.0-alpha-4080220250929001",
+    "@dcloudio/uni-h5": "3.0.0-alpha-4080220250929001",
+    "@dcloudio/uni-mp-weixin": "3.0.0-alpha-4080220250929001",
+    "@dcloudio/uni-ui": "^1.5.11",
+    "dayjs": "^1.11.10",
+    "pinia": "^2.1.7",
+    "vue": "^3.4.0"
+  },
+  "devDependencies": {
+    "@dcloudio/types": "^3.4.0",
+    "@dcloudio/vite-plugin-uni": "3.0.0-alpha-4080220250929001",
+    "@types/node": "^20.0.0",
+    "sass": "^1.69.5",
+    "vite": "^5.0.0"
+  }
+}

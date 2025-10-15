@@ -1,0 +1,259 @@
+/**
+ * 全局样式
+ */
+
+// 导入 uni-app 内置样式变量
+@use '@/uni.scss' as *;
+
+// 全局样式重置
+page {
+  background-color: $uni-bg-color-grey;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: $uni-font-size-base;
+  color: $uni-text-color;
+  line-height: 1.6;
+}
+
+// 通用布局类
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-around {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+// 文本对齐
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+// 文本省略
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-ellipsis-2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+// 定位
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+// 显示隐藏
+.hidden {
+  display: none;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+// 边距
+.m-0 { margin: 0; }
+.m-1 { margin: $uni-spacing-row-sm; }
+.m-2 { margin: $uni-spacing-row; }
+.m-3 { margin: $uni-spacing-row-lg; }
+
+.p-0 { padding: 0; }
+.p-1 { padding: $uni-spacing-row-sm; }
+.p-2 { padding: $uni-spacing-row; }
+.p-3 { padding: $uni-spacing-row-lg; }
+
+// 圆角
+.rounded {
+  border-radius: $uni-border-radius-base;
+}
+
+.rounded-sm {
+  border-radius: $uni-border-radius-sm;
+}
+
+.rounded-lg {
+  border-radius: $uni-border-radius-lg;
+}
+
+.rounded-circle {
+  border-radius: $uni-border-radius-circle;
+}
+
+// 阴影
+.shadow-sm {
+  box-shadow: $uni-shadow-sm;
+}
+
+.shadow {
+  box-shadow: $uni-shadow-base;
+}
+
+.shadow-lg {
+  box-shadow: $uni-shadow-lg;
+}
+
+// 卡片样式
+.card {
+  background-color: $uni-bg-color;
+  border-radius: $uni-border-radius-lg;
+  padding: $uni-spacing-row-lg;
+  margin-bottom: $uni-spacing-row;
+  box-shadow: $uni-shadow-sm;
+}
+
+// 按钮样式
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $uni-spacing-row $uni-spacing-row-lg;
+  border-radius: $uni-border-radius-base;
+  font-size: $uni-font-size-base;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &.btn-primary {
+    background-color: $uni-color-primary;
+    color: white;
+    
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  
+  &.btn-success {
+    background-color: $uni-color-success;
+    color: white;
+  }
+  
+  &.btn-warning {
+    background-color: $uni-color-warning;
+    color: white;
+  }
+  
+  &.btn-error {
+    background-color: $uni-color-error;
+    color: white;
+  }
+  
+  &.btn-outline {
+    background-color: transparent;
+    border: 1px solid $uni-border-color;
+    color: $uni-text-color;
+  }
+}
+
+// 输入框样式
+.input {
+  width: 100%;
+  padding: $uni-spacing-row;
+  border: 1px solid $uni-border-color;
+  border-radius: $uni-border-radius-base;
+  font-size: $uni-font-size-base;
+  background-color: $uni-bg-color;
+  
+  &:focus {
+    border-color: $uni-color-primary;
+    outline: none;
+  }
+  
+  &.error {
+    border-color: $uni-color-error;
+  }
+}
+
+// 列表样式
+.list {
+  background-color: $uni-bg-color;
+  
+  .list-item {
+    padding: $uni-spacing-row-lg;
+    border-bottom: 1px solid $uni-border-color;
+    
+    &:last-child {
+      border-bottom: none;
+    }
+    
+    &:active {
+      background-color: $uni-bg-color-hover;
+    }
+  }
+}
+
+// 加载状态
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $uni-spacing-row-lg;
+  color: $uni-text-color-grey;
+}
+
+// 空状态
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60rpx;
+  color: $uni-text-color-grey;
+  
+  .empty-icon {
+    font-size: 80rpx;
+    margin-bottom: $uni-spacing-row;
+  }
+  
+  .empty-text {
+    font-size: $uni-font-size-base;
+  }
+}
