@@ -47,12 +47,10 @@ const userInfo = computed(() => userStore.userInfo)
 
 // 登录
 async function handleLogin() {
-  const success = await userStore.login()
-  if (success) {
-    showToast('登录成功', 'success')
-  } else {
-    showToast('登录失败')
-  }
+  // 跳转到登录页面
+  uni.navigateTo({
+    url: '/pages/login/login'
+  })
 }
 
 // 退出登录

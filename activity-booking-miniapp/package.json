@@ -7,7 +7,6 @@
     "dev": "uni --mode development",
     "dev:staging": "uni --mode staging",
     "build": "uni build --mode production",
-    "build:staging": "uni build --mode staging",
     "type-check": "vue-tsc --noEmit"
   },
   "dependencies": {

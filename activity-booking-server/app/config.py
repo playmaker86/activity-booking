@@ -26,6 +26,10 @@ class Settings(BaseSettings):
     WECHAT_APPID: str = ""
     WECHAT_SECRET: str = ""
     
+    # 微信网页应用配置
+    WECHAT_WEB_APPID: str = ""
+    WECHAT_WEB_SECRET: str = ""
+    
     class Config:
         # 获取项目根目录的 .env 文件路径
         env_file = os.path.join(os.path.dirname(os.path.dirname(__file__)), ".env")

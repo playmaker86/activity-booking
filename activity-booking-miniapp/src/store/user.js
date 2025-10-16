@@ -14,10 +14,16 @@ export const useUserStore = defineStore('user', {
 
   actions: {
     /**
-     * 登录
+     * 微信授权登录
      */
     async login() {
       try {
+        // 获取用户授权
+        const authResult = await this.getUserProfile()
+        if (!authResult) {
+          return false
+        }
+
         const { code } = await uni.login({ provider: 'weixin' })
         const res = await wxLogin(code)
         this.token = res.token
@@ -27,6 +33,27 @@ export const useUserStore = defineStore('user', {
       } catch (error) {
         console.error('登录失败:', error)
         return false
+      }
+    },
+
+    /**
+     * 获取用户授权信息
+     */
+    async getUserProfile() {
+      try {
+        const res = await uni.getUserProfile({
+          desc: '用于完善用户资料'
+        })
+        return res
+      } catch (error) {
+        console.error('获取用户授权失败:', error)
+        // 如果用户拒绝授权，提示用户
+        uni.showModal({
+          title: '提示',
+          content: '需要您的授权才能登录',
+          showCancel: false
+        })
+        return null
       }
     },
 

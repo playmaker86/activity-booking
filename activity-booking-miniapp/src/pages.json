@@ -37,6 +37,27 @@
       "style": {
         "navigationBarTitleText": "我的预约"
       }
+    },
+    {
+      "path": "pages/login/login",
+      "style": {
+        "navigationBarTitleText": "登录",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/web-login/web-login",
+      "style": {
+        "navigationBarTitleText": "微信扫码登录",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/auth/callback",
+      "style": {
+        "navigationBarTitleText": "登录回调",
+        "navigationStyle": "custom"
+      }
     }
   ],
   "tabBar": {
