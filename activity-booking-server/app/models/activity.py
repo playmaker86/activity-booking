@@ -1,8 +1,10 @@
+from datetime import datetime
+from typing import List, Optional, TYPE_CHECKING
+
 from sqlalchemy import Integer, String, Text, DateTime, Float, Boolean
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from datetime import datetime
+
 from app.database import Base
-from typing import List, Optional, TYPE_CHECKING
 
 if TYPE_CHECKING:
     from app.models.booking import Booking

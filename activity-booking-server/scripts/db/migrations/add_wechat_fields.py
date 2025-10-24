@@ -1,13 +1,13 @@
 """
 添加微信用户信息字段的数据库迁移脚本
 """
-import sys
 import os
+import sys
+
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 
 from sqlalchemy import text
 from app.database import engine
-from app.config import settings
 
 
 def upgrade():

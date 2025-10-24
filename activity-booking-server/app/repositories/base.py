@@ -1,6 +1,7 @@
 from typing import TypeVar, Generic, Optional, List, Dict, Any, Type
+
+from sqlalchemy import select, func
 from sqlalchemy.orm import Session
-from sqlalchemy import select, and_, func
 
 T = TypeVar('T')
 

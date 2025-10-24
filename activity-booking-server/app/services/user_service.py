@@ -1,8 +1,11 @@
 from typing import Optional
+
 from sqlalchemy.orm import Session
+
 from app.models.user import User
-from app.schemas.user import UserUpdate
 from app.repositories.user_repository import UserRepository
+from app.schemas.user import UserUpdate
+
 
 class UserService:
     """用户业务逻辑层"""

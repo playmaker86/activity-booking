@@ -1,5 +1,7 @@
-import redis
 from typing import Optional
+
+import redis
+
 from app.config import settings
 
 # Redis连接池

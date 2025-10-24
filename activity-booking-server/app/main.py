@@ -1,10 +1,12 @@
 import os
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import ORJSONResponse
 from fastapi.staticfiles import StaticFiles
-from app.config import settings
+
 from app.api import auth, users, activities, bookings
+from app.config import settings
 
 # 创建应用实例
 app = FastAPI(

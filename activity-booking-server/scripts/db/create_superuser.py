@@ -2,11 +2,8 @@
 创建超级用户脚本
 用于创建管理员账户
 """
-import asyncio
-from datetime import datetime
 from app.database import SessionLocal
 from app.models.user import User
-from app.utils.security import get_password_hash
 
 
 def create_superuser():

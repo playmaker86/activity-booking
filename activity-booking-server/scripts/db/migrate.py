@@ -3,9 +3,9 @@
 数据库迁移便捷脚本
 提供常用的数据库迁移命令
 """
-import sys
 import os
 import subprocess
+import sys
 
 # 添加项目根目录到 Python 路径
 project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

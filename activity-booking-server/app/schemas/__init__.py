@@ -1,7 +1,7 @@
-from app.schemas.base import CamelCaseModel
-from app.schemas.user import User, UserCreate, UserUpdate
 from app.schemas.activity import Activity, ActivityCreate, ActivityUpdate, ActivityList
+from app.schemas.base import CamelCaseModel
 from app.schemas.booking import Booking, BookingCreate, BookingUpdate, BookingList
+from app.schemas.user import User, UserCreate, UserUpdate
 
 __all__ = [
     "CamelCaseModel",

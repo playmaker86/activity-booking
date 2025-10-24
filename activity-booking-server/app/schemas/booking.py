@@ -1,5 +1,6 @@
 from datetime import datetime
 from typing import Optional, List
+
 from app.models.booking import BookingStatus
 from app.schemas.activity import Activity
 from app.schemas.base import CamelCaseModel

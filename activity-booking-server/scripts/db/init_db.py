@@ -3,6 +3,7 @@
 创建一些示例数据
 """
 from datetime import datetime, timedelta
+
 from app.database import SessionLocal, engine, Base
 from app.models.activity import Activity
 

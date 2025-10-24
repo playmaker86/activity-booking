@@ -1,19 +1,20 @@
+import secrets
+from typing import Optional
+
 from fastapi import APIRouter, Depends, HTTPException, Request
+from pydantic import BaseModel
 from sqlalchemy.orm import Session
+
 from app.api.deps import get_db
 from app.models.user import User
 from app.schemas.token import Token
-from app.schemas.user import WechatUserInfo
 from app.utils.security import create_access_token
 from app.utils.wechat import (
-    get_wechat_openid, 
-    get_wechat_access_token, 
+    get_wechat_openid,
+    get_wechat_access_token,
     get_wechat_user_info,
     get_wechat_web_login_url
 )
-from pydantic import BaseModel
-from typing import Optional
-import secrets
 
 router = APIRouter()
 

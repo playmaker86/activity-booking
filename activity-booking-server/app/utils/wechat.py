@@ -1,5 +1,7 @@
-import httpx
 from typing import Optional, Dict, Any
+
+import httpx
+
 from app.config import settings
 
 

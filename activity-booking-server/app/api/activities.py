@@ -1,16 +1,17 @@
-from fastapi import APIRouter, Depends, HTTPException, Query
-from sqlalchemy.orm import Session
 from typing import Optional
+
+from fastapi import APIRouter, Depends, Query
+from sqlalchemy.orm import Session
+
 from app.api.deps import get_db
-from app.models.activity import Activity
 from app.schemas.activity import (
     Activity as ActivitySchema,
     ActivityCreate,
     ActivityUpdate,
     ActivityList
 )
-from app.services.activity_service import ActivityService
 from app.schemas.response import ApiResponse, ResponseCode
+from app.services.activity_service import ActivityService
 from app.utils.response import create_success_response, create_error_response
 
 router = APIRouter()

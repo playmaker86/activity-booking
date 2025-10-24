@@ -1,7 +1,9 @@
-from typing import Generator, Optional
+from typing import Generator
+
 from fastapi import Depends, HTTPException, status
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from sqlalchemy.orm import Session
+
 from app.database import SessionLocal
 from app.models.user import User
 from app.utils.security import verify_token

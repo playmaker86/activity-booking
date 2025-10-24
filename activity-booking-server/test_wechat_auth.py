@@ -3,11 +3,10 @@
 微信授权登录功能测试脚本
 """
 import asyncio
+
 import httpx
+
 from app.utils.wechat import (
-    get_wechat_openid,
-    get_wechat_access_token,
-    get_wechat_user_info,
     get_wechat_web_login_url
 )
 

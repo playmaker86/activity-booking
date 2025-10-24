@@ -1,8 +1,11 @@
-from sqlalchemy import select, func
 from typing import List, Optional
+
+from sqlalchemy import select, func
 from sqlalchemy.orm import Session
+
 from app.models.booking import Booking, BookingStatus
 from app.repositories.base import BaseRepository
+
 
 class BookingRepository(BaseRepository[Booking]):
     """预约数据访问层"""

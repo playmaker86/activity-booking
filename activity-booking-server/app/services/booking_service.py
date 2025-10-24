@@ -1,10 +1,12 @@
-from typing import List, Optional
+from typing import Optional
+
 from sqlalchemy.orm import Session
-from app.models.user import User
+
 from app.models.booking import Booking, BookingStatus
-from app.schemas.booking import BookingCreate, BookingList
-from app.repositories.booking_repository import BookingRepository
 from app.repositories.activity_repository import ActivityRepository
+from app.repositories.booking_repository import BookingRepository
+from app.schemas.booking import BookingCreate, BookingList
+
 
 class BookingService:
     """预约业务逻辑层"""

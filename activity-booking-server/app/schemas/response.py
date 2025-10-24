@@ -1,6 +1,7 @@
-from typing import Any, Optional, Generic, TypeVar
-from pydantic import BaseModel, Field
 from enum import Enum
+from typing import Optional, Generic, TypeVar
+
+from pydantic import BaseModel, Field
 
 T = TypeVar('T')
 

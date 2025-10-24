@@ -4,6 +4,7 @@
 """
 import json
 from datetime import datetime
+
 from app.database import SessionLocal
 from app.models import User, Activity, Booking
 

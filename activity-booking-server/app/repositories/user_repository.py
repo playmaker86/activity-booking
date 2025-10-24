@@ -1,8 +1,11 @@
-from sqlalchemy import select
 from typing import Optional
+
+from sqlalchemy import select
 from sqlalchemy.orm import Session
+
 from app.models.user import User
 from app.repositories.base import BaseRepository
+
 
 class UserRepository(BaseRepository[User]):
     """用户数据访问层"""

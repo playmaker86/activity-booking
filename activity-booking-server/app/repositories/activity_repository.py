@@ -1,6 +1,8 @@
-from sqlalchemy import select, func
 from typing import Optional, List
+
+from sqlalchemy import select, func
 from sqlalchemy.orm import Session
+
 from app.models.activity import Activity
 from app.repositories.base import BaseRepository
 
