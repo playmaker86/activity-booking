@@ -30,22 +30,52 @@ class Request {
   interceptResponse(response) {
     const { data, statusCode } = response
     
-    if (statusCode === 200) {
-      return Promise.resolve(data)
-    } else if (statusCode === 401) {
-      // token失效，跳转登录
-      uni.removeStorageSync('token')
-      uni.navigateTo({
-        url: '/pages/login/login'
-      })
-      return Promise.reject(new Error('未授权，请重新登录'))
+    // 检查是否是统一响应格式
+    if (data && typeof data === 'object' && 'code' in data) {
+      // 新的统一响应格式
+      const { code, message, data: responseData, error } = data
+      
+      if (code === 200 || code === 201) {
+        // 成功响应，返回数据
+        return Promise.resolve(responseData)
+      } else {
+        // 错误响应
+        if (code === 401) {
+          // token失效，跳转登录
+          uni.removeStorageSync('token')
+          uni.navigateTo({
+            url: '/pages/login/login'
+          })
+          return Promise.reject(new Error('未授权，请重新登录'))
+        } else {
+          // 其他错误
+          const errorMessage = message || '请求失败'
+          uni.showToast({
+            title: errorMessage,
+            icon: 'none'
+          })
+          return Promise.reject(new Error(errorMessage))
+        }
+      }
     } else {
-      const error = data.message || '请求失败'
-      uni.showToast({
-        title: error,
-        icon: 'none'
-      })
-      return Promise.reject(new Error(error))
+      // 兼容旧的响应格式
+      if (statusCode === 200) {
+        return Promise.resolve(data)
+      } else if (statusCode === 401) {
+        // token失效，跳转登录
+        uni.removeStorageSync('token')
+        uni.navigateTo({
+          url: '/pages/login/login'
+        })
+        return Promise.reject(new Error('未授权，请重新登录'))
+      } else {
+        const error = data.message || '请求失败'
+        uni.showToast({
+          title: error,
+          icon: 'none'
+        })
+        return Promise.reject(new Error(error))
+      }
     }
   }
 

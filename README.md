@@ -138,11 +138,18 @@ WECHAT_SECRET=your-wechat-secret
 
 ## 📚 文档
 
+### 核心文档
 - **API 文档**: [docs/API.md](./docs/API.md)
 - **开发指南**: [docs/DEVELOPMENT.md](./docs/DEVELOPMENT.md)
 - **部署指南**: [docs/DEPLOYMENT.md](./docs/DEPLOYMENT.md)
-- **小程序环境配置**: [activity-booking-miniapp/ENV_CONFIG.md](./activity-booking-miniapp/ENV_CONFIG.md)
-- **小程序API使用**: [activity-booking-miniapp/README_API.md](./activity-booking-miniapp/README_API.md)
+
+### 后端文档
+- **架构设计**: [activity-booking-server/ARCHITECTURE.md](./activity-booking-server/ARCHITECTURE.md)
+- **数据模型**: [activity-booking-server/MODEL_ER_DIAGRAM.md](./activity-booking-server/MODEL_ER_DIAGRAM.md)
+
+### 前端文档
+- **开发指南**: [activity-booking-miniapp/FRONTEND_GUIDE.md](./activity-booking-miniapp/FRONTEND_GUIDE.md)
+- **环境配置**: [activity-booking-miniapp/ENV_CONFIG.md](./activity-booking-miniapp/ENV_CONFIG.md)
 
 ### 在线 API 文档
 

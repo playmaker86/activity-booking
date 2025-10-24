@@ -64,7 +64,7 @@ activity-booking/
     │   └── script.py.mako       # 迁移脚本模板
     │
     ├── app/                     # 应用代码
-    │   ├── api/                 # API 路由
+    │   ├── api/                 # API 路由层
     │   │   ├── __init__.py
     │   │   ├── deps.py          # 依赖注入
     │   │   ├── auth.py          # 认证路由
@@ -72,7 +72,20 @@ activity-booking/
     │   │   ├── activities.py    # 活动路由
     │   │   └── bookings.py      # 预约路由
     │   │
-    │   ├── models/              # 数据库模型
+    │   ├── services/            # 业务逻辑层
+    │   │   ├── __init__.py
+    │   │   ├── user_service.py     # 用户业务逻辑
+    │   │   ├── activity_service.py # 活动业务逻辑
+    │   │   └── booking_service.py  # 预约业务逻辑
+    │   │
+    │   ├── repositories/        # 数据访问层
+    │   │   ├── __init__.py
+    │   │   ├── base.py             # 基础 Repository 类
+    │   │   ├── user_repository.py  # 用户数据访问
+    │   │   ├── activity_repository.py # 活动数据访问
+    │   │   └── booking_repository.py # 预约数据访问
+    │   │
+    │   ├── models/              # 数据库模型层
     │   │   ├── __init__.py
     │   │   ├── user.py          # 用户模型
     │   │   ├── activity.py      # 活动模型
@@ -139,20 +152,31 @@ activity-booking/
 - **bookings.py**: 预约管理功能
 - **deps.py**: 依赖注入，如获取当前用户
 
-#### 2. 数据库模型层（app/models/）
+#### 2. 业务逻辑层（app/services/）
+- **user_service.py**: 用户相关业务逻辑
+- **activity_service.py**: 活动相关业务逻辑
+- **booking_service.py**: 预约相关业务逻辑
+
+#### 3. 数据访问层（app/repositories/）
+- **base.py**: 基础 Repository 类，提供通用数据访问方法
+- **user_repository.py**: 用户数据访问操作
+- **activity_repository.py**: 活动数据访问操作
+- **booking_repository.py**: 预约数据访问操作
+
+#### 4. 数据库模型层（app/models/）
 - **user.py**: 用户表模型
 - **activity.py**: 活动表模型
 - **booking.py**: 预约表模型
 
-#### 3. Schema 层（app/schemas/）
+#### 5. Schema 层（app/schemas/）
 - 定义 API 的请求/响应数据结构
 - 数据验证和序列化
 
-#### 4. 工具层（app/utils/）
+#### 6. 工具层（app/utils/）
 - **security.py**: JWT 令牌生成和验证
 - **wechat.py**: 微信小程序登录接口
 
-#### 5. 数据库迁移（alembic/）
+#### 7. 数据库迁移（alembic/）
 - 使用 Alembic 管理数据库版本
 - 支持数据库升级和回滚
 

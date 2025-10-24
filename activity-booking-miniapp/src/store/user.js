@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { wxLogin, getUserInfo } from '@/api/user'
 import storage from '@/utils/storage'
+import { handleApiResponse } from '@/utils/response'
 
 export const useUserStore = defineStore('user', {
   state: () => ({
@@ -26,6 +27,7 @@ export const useUserStore = defineStore('user', {
 
         const { code } = await uni.login({ provider: 'weixin' })
         const res = await wxLogin(code)
+        // 现在 res 已经是处理后的数据（response.data）
         this.token = res.token
         storage.set('token', res.token)
         await this.fetchUserInfo()
@@ -63,10 +65,12 @@ export const useUserStore = defineStore('user', {
     async fetchUserInfo() {
       try {
         const userInfo = await getUserInfo()
+        // 现在 userInfo 已经是处理后的数据（response.data）
         this.userInfo = userInfo
         storage.set('userInfo', userInfo)
       } catch (error) {
         console.error('获取用户信息失败:', error)
+        this.userInfo = null
       }
     },
 
