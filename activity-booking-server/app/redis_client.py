@@ -2,7 +2,7 @@ from typing import Optional
 
 import redis
 
-from app.config import settings
+from app.core.config import settings
 
 # Redis连接池
 redis_pool = redis.ConnectionPool.from_url(

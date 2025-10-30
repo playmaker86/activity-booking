@@ -4,7 +4,7 @@ from alembic import context
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 
-from app.config import settings
+from app.core.config import settings
 from app.database import Base
 from app.models import *  # noqa
 

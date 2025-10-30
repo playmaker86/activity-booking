@@ -6,7 +6,7 @@ from fastapi.responses import ORJSONResponse
 from fastapi.staticfiles import StaticFiles
 
 from app.api import auth, users, activities, bookings
-from app.config import settings
+from app.core.config import settings
 
 # 创建应用实例
 app = FastAPI(

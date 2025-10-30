@@ -2,7 +2,7 @@ from typing import Optional, Dict, Any
 
 import httpx
 
-from app.config import settings
+from app.core.config import settings
 
 
 async def get_wechat_openid(code: str) -> Optional[str]:
