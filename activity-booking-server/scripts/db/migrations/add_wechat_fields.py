@@ -7,7 +7,7 @@ import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 
 from sqlalchemy import text
-from app.database import engine
+from app.core.db import engine
 
 
 def upgrade():

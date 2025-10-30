@@ -4,7 +4,7 @@
 """
 from datetime import datetime, timedelta
 
-from app.database import SessionLocal, engine, Base
+from app.core.db import SessionLocal, engine, Base
 from app.models.activity import Activity
 
 # 创建所有表

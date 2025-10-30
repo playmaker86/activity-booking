@@ -2,7 +2,7 @@
 创建超级用户脚本
 用于创建管理员账户
 """
-from app.database import SessionLocal
+from app.core.db import SessionLocal
 from app.models.user import User
 
 
